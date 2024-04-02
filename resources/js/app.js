@@ -15,8 +15,11 @@ import { createApp } from 'vue';
 
 const app = createApp({});
 
-import ExampleComponent from './components/ExampleComponent.vue';
-app.component('example-component', ExampleComponent);
+import HistoryComponent from './components/HistoryComponent.vue';
+app.component('history-component', HistoryComponent);
+
+import ConvertComponent from './components/ConvertComponent.vue';
+app.component('convert-component', ConvertComponent);
 
 /**
  * The following block of code may be used to automatically register your

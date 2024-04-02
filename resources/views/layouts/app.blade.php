@@ -50,6 +50,16 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
+                                <a id="" class="nav-link" href="{{ route('convert') }}" role="button" v-pre>
+                                    Convert
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a id="" class="nav-link" href="{{ route('history') }}" role="button" v-pre>
+                                    View History
+                                </a>
+                            </li>
+                            <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>

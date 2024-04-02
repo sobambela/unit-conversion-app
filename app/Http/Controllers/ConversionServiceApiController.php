@@ -72,6 +72,15 @@ class ConversionServiceApiController
         ],Response::HTTP_UNPROCESSABLE_ENTITY);
     }
 
+    /**
+     * @param string $from
+     * @param string $to
+     * @param float $value
+     * @param float $toValue
+     * @param string $status
+     * @param string $message
+     * @return void
+     */
     public function logHistory(
         $from, 
         $to, 

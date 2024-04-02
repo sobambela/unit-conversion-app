@@ -6,6 +6,7 @@
 
 import './bootstrap';
 import { createApp } from 'vue';
+import moment from "moment";
 
 /**
  * Next, we will create a fresh Vue application instance. You may then begin
@@ -13,7 +14,9 @@ import { createApp } from 'vue';
  * to use in your application's views. An example is included for you.
  */
 
-const app = createApp({});
+const app = createApp({
+    moment
+});
 
 import HistoryComponent from './components/HistoryComponent.vue';
 app.component('history-component', HistoryComponent);

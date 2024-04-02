@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/convert', [App\Http\Controllers\HomeController::class, 'convert'])->name('convert');
 Route::get('/history', [App\Http\Controllers\HomeController::class, 'history'])->name('history');
+Route::get('/get-history', [App\Http\Controllers\HomeController::class, 'getHistory'])->name('get-history');

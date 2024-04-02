@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use App\Models\ConversionHistory;
 
 class HomeController extends Controller
 {
@@ -44,5 +46,16 @@ class HomeController extends Controller
     public function history()
     {
         return view('history');
+    }
+
+    /**
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function getHistory()
+    {
+        $history = ConversionHistory::orderBy('id', 'DESC')->get();
+        return response()->json([
+            'data' => $history
+        ], Response::HTTP_OK);
     }
 }

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('conversion_histories', function (Blueprint $table) {
             $table->id();
+            $table->string('from');
+            $table->string('to');
+            $table->double('value', 10.2);
+            $table->double('converted_value', 10.2);
             $table->timestamps();
         });
     }

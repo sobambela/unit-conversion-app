@@ -24,6 +24,9 @@ app.component('history-component', HistoryComponent);
 import ConvertComponent from './components/ConvertComponent.vue';
 app.component('convert-component', ConvertComponent);
 
+import UserProfileComponent from './components/UserProfileComponent.vue';
+app.component('user-profile', UserProfileComponent);
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

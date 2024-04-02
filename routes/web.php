@@ -23,3 +23,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/convert', [App\Http\Controllers\HomeController::class, 'convert'])->name('convert');
 Route::get('/history', [App\Http\Controllers\HomeController::class, 'history'])->name('history');
 Route::get('/get-history', [App\Http\Controllers\HomeController::class, 'getHistory'])->name('get-history');
+
+// User profile
+Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'index'])->name('user-profile');
+Route::post('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('update-profile');
+Route::get('/get-profile', [App\Http\Controllers\ProfileController::class, 'getProfile'])->name('get-profile');

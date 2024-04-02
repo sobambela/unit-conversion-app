@@ -127,7 +127,7 @@
 
                 vm.loader = true;
                 vm.showError = false;
-                axios.post('http://localhost:8000/api/convert',
+                axios.post('/api/convert',
                         {
                             "from": vm.from.toLowerCase(),
                             "to": vm.to.toLowerCase(),

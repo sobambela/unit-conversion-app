@@ -40,7 +40,6 @@
 <script>
     export default {
         mounted() {
-            console.log('Component mounted.')
             this.getData();
         },
 
@@ -53,7 +52,7 @@
         methods: {
             getData(){
                 let vm = this;
-                axios.get('http://localhost:8000/get-history')
+                axios.get('/get-history')
                     .then(function (response) {
                         vm.history = response.data.data;
                     }).catch(function (error) {

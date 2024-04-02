@@ -123,5 +123,6 @@ DB_PASSWORD=
 ```
 
 ```
+php artisan migrate
 php artisan serve
 ```

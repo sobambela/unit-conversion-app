@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use RhinoAfrica\UnitConversionObjects\Services\UnitConversionService;
+use App\Models\ConversionHistory;
 
 /**
  * ConversionServiceApiController provides acccess to query an API Endpoint for unit conversions
@@ -38,6 +39,9 @@ class ConversionServiceApiController
             try {
                 $this->service->setSourceUnit($from,$value);
                 $targetUnit = $this->service->convert($to);
+        
+                $this->logHistory($from, $to, $value, $targetUnit->getValue());
+               
                 return response()->json([
                     'error' => false,
                     'message' => 'Request successful. Response OK.',
@@ -52,6 +56,7 @@ class ConversionServiceApiController
                     ]
                 ],Response::HTTP_OK);
             } catch (\Exception $e) {
+                $this->logHistory($from, $to, $value, null,'Fail', $e->getMessage());
                 return response()->json([
                     'error' => true,
                     'message' => $e->getMessage(),
@@ -59,10 +64,30 @@ class ConversionServiceApiController
                 ],$e->getCode());
             }
         }
+
         return response()->json([
             'error' => true,
             'message' => 'Request failed. Conversion failed.',
             'code' => Response::HTTP_UNPROCESSABLE_ENTITY,
         ],Response::HTTP_UNPROCESSABLE_ENTITY);
+    }
+
+    public function logHistory(
+        $from, 
+        $to, 
+        $value, 
+        $toValue, 
+        $status = 'Success', 
+        $message = 'Success'
+    ): void
+    {
+        ConversionHistory::create([
+            'from' => $from,
+            'to' => $to,
+            'from_value' => $value,
+            'to_value' => $toValue,
+            'status' => $status,
+            'message' => $message,
+        ]);
     }
 }

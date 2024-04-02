@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('from');
             $table->string('to');
-            $table->double('value', 10.2);
-            $table->double('converted_value', 10.2);
+            $table->double('from_value', 10.2);
+            $table->double('to_value', 10.2)->nullable();
+            $table->string('status')->nullable();
+            $table->string('message')->nullable();
             $table->timestamps();
         });
     }

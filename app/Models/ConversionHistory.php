@@ -12,7 +12,9 @@ class ConversionHistory extends Model
     protected $fillable = [
         'from',
         'to',
-        'value',
-        'converted_value'
+        'from_value',
+        'to_value',
+        'status',
+        'message'
     ];
 }
